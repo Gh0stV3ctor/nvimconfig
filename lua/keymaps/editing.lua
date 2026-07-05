@@ -43,13 +43,13 @@ map("n", "<leader>qa", "<cmd>qa!<CR>", { desc = "Quit all window without save" }
 -- map("n", "N", "Nzzzv", { desc = "Previous search result" })
 -- -- zz = center cursor, zv = open fold to reveal match
 
--- -- =============================================================================
--- -- Search
--- -- =============================================================================
--- map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
+-- =============================================================================
+-- Search
+-- =============================================================================
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 -- map("v", "*", "y/<C-r>\"<CR>", { desc = "Search forward (selection)" })
 -- map("v", "#", "y?<C-r>\"<CR>", { desc = "Search backward (selection)" })
--- -- y = yank selection to "" → / or ? enters search → <C-r>" pastes "" → CR
+-- y = yank selection to "" → / or ? enters search → <C-r>" pastes "" → CR
 
 -- -- =============================================================================
 -- -- Deletion (blackhole — don't pollute the unnamed register)
