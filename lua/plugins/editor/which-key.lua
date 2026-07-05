@@ -65,7 +65,7 @@ return {
   config = function(_, opts)
     local wk = require 'which-key'
     wk.setup(opts)
-    wk.add(require 'keymaps.which-key')
+    wk.add(require 'keymaps.editor.which-key')
   end,
 }
 

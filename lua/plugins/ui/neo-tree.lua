@@ -1,4 +1,3 @@
-
 return {
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -6,8 +5,9 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
-            "nvim-tree/nvim-web-devicons", -- optional, but recommended
+            "nvim-tree/nvim-web-devicons",
         },
-        lazy = false,                -- neo-tree will lazily load itself
-    }
+        keys = require("keymaps.ui.neo-tree"),
+        opts = {},
+    },
 }

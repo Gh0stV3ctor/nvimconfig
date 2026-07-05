@@ -2,11 +2,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
-        keys = {
-            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-            { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Grep text" },
-            { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Buffers" },
-        },
+        keys = require("keymaps.editor.telescope"),
         opts = function()
             local actions = require("telescope.actions")
 
@@ -24,4 +20,3 @@ return {
         end,
     },
 }
-
