@@ -111,13 +111,13 @@ map("n", "<leader>tL", "<cmd>+tabm<CR>", { desc = "Move tab right" })
 -- =============================================================================
 -- Buffer management
 -- =============================================================================
-map("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next buffer" })
-map("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous buffer" })
-map("n", "<leader>bd", function()
+map("n", "<A-i>", "<cmd>bn<CR>", { desc = "Next buffer" })
+map("n", "<A-u", "<cmd>bp<CR>", { desc = "Previous buffer" })
+map("n", "<A-o>", function()
   local bufnr = vim.api.nvim_get_current_buf()
-  -- 先切到 alternate buffer（上一个）
+  -- firstly move to the alternate buffer（the previous buffer） before close A
   vim.cmd("b#")
-  -- 如果切过去了，再删原来的
+  -- after moving to the previous, close A
   if vim.api.nvim_get_current_buf() ~= bufnr then
     vim.api.nvim_buf_delete(bufnr, {})
   end
