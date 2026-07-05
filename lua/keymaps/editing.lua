@@ -111,8 +111,8 @@ map("n", "<leader>tL", "<cmd>+tabm<CR>", { desc = "Move tab right" })
 -- =============================================================================
 -- Buffer management
 -- =============================================================================
-map("n", "<C-PageUp>", "<cmd>bp<CR>", { desc = "Previous buffer" })
-map("n", "<C-PageDown>", "<cmd>bn<CR>", { desc = "Next buffer" })
+map({ "n", "i" }, "<C-PageUp>", "<cmd>bp<CR>", { desc = "Previous buffer" })
+map({ "n", "i" }, "<C-PageDown>", "<cmd>bn<CR>", { desc = "Next buffer" })
 map("n", "<A-o>", function()
   local bufnr = vim.api.nvim_get_current_buf()
   -- firstly move to the alternate buffer（the previous buffer） before close A

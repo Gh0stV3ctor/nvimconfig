@@ -1,13 +1,7 @@
 return {
     {
         "iamcco/markdown-preview.nvim",
-        keys = {
-            {
-                "<leader>mp",
-                "<cmd>MarkdownPreview<cr>",
-                desc = "Markdown Preview",
-            },
-        },
+        keys = require("keymaps.editor.markdown-preview"),
         build = "cd app && yarn install",
         ft = { "markdown" },
         init = function()
