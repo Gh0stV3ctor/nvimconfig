@@ -14,7 +14,7 @@ map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 -- =============================================================================
 -- Save / Quit
 -- =============================================================================
-map("n", "<leader>ww", "<cmd>ww<CR>", { desc = "Save" })
+map("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save" })
 map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "Save and quit window" })
 map("n", "<leader>qq", "<cmd>q!<CR>", { desc = "Quit without save" })
 map("n", "<leader>qa", "<cmd>qa!<CR>", { desc = "Quit all window without save" })
@@ -111,8 +111,8 @@ map("n", "<leader>tL", "<cmd>+tabm<CR>", { desc = "Move tab right" })
 -- =============================================================================
 -- Buffer management
 -- =============================================================================
-map("n", "<A-i>", "<cmd>bn<CR>", { desc = "Next buffer" })
-map("n", "<A-u", "<cmd>bp<CR>", { desc = "Previous buffer" })
+map("n", "<C-PageUp>", "<cmd>bp<CR>", { desc = "Previous buffer" })
+map("n", "<C-PageDown>", "<cmd>bn<CR>", { desc = "Next buffer" })
 map("n", "<A-o>", function()
   local bufnr = vim.api.nvim_get_current_buf()
   -- firstly move to the alternate buffer（the previous buffer） before close A

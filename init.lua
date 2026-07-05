@@ -31,8 +31,8 @@ require('lazy').setup {
 
     { import = 'plugins.ui' },
     { import = 'plugins.editor' },
-    { import = 'plugins.langs' },
-    { import = 'plugins.git' },
+    -- { import = 'plugins.langs' },
+    -- { import = 'plugins.git' },
 
     -- Inject language-specific plugins (rustaceanvim, crates.nvim, etc.)
     language.plugins,
