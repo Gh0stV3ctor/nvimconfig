@@ -332,7 +332,9 @@ end
 
 --- Enable all declared LSP servers via Neovim 0.11+ native API
 function M.enable_lsp()
+  local cap = require("blink.cmp").get_lsp_capabilities()
   for server, config in pairs(M._lsp_configs) do
+    config.capabilities = cap
     if next(config) then
       vim.lsp.config(server, config)
     end

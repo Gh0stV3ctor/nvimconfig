@@ -4,17 +4,17 @@ require("keymaps")
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -27,89 +27,89 @@ local have_nerd_font = true
 
 -- Lazy setup
 require("lazy").setup({
-	spec = {
+  spec = {
 
-		{ import = "plugins.ui" },
-		{ import = "plugins.editor" },
-		{ import = "plugins.langs" },
-		{ import = "plugins.git" },
+    { import = "plugins.ui" },
+    { import = "plugins.editor" },
+    { import = "plugins.langs" },
+    { import = "plugins.git" },
 
-		-- Inject language-specific plugins (rustaceanvim, crates.nvim, etc.)
-		language.plugins,
-	},
+    -- Inject language-specific plugins (rustaceanvim, crates.nvim, etc.)
+    language.plugins,
+  },
 
-	install = { colorscheme = { "tokyonight", "habamax" } },
-	checker = { enabled = false },
-	change_detection = { enabled = false },
-	rocks = { enabled = false },
+  install = { colorscheme = { "tokyonight", "habamax" } },
+  checker = { enabled = false },
+  change_detection = { enabled = false },
+  rocks = { enabled = false },
 
-	-- dev = {
-	--   path = '~/proj',
-	--   patterns = {},
-	--   fallback = false,
-	-- },
+  -- dev = {
+  --   path = '~/proj',
+  --   patterns = {},
+  --   fallback = false,
+  -- },
 
-	ui = {
-		size = {
-			width = 0.85,
-			height = 0.8,
-		},
-		border = "rounded",
-		backdrop = 60,
-		title = " Zachary is Lazy󰒲 ",
+  ui = {
+    size = {
+      width = 0.85,
+      height = 0.8,
+    },
+    border = "rounded",
+    backdrop = 60,
+    title = " Zachary is Lazy󰒲 ",
 
-		icons = have_nerd_font and {
-			cmd = "󰞷 ",
-			event = " ",
-			ft = "󱔘 ",
-			debug = "󰃤 ",
-		} or {
-			cmd = "⌘",
-			config = "🛠",
-			event = "📅",
-			ft = "📂",
-			init = "⚙",
-			keys = "🗝",
-			plugin = "🔌",
-			runtime = "💻",
-			require = "🌙",
-			source = "📄",
-			start = "🚀",
-			task = "📌",
-			lazy = "💤 ",
-		},
+    icons = have_nerd_font and {
+      cmd = "󰞷 ",
+      event = " ",
+      ft = "󱔘 ",
+      debug = "󰃤 ",
+    } or {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
 
-		browser = (function()
-			for _, cmd in ipairs({ "vivaldi", "firefox", "chromium", "xdg-open", "open" }) do
-				if vim.fn.executable(cmd) == 1 then
-					return cmd
-				end
-			end
-		end)(),
+    browser = (function()
+      for _, cmd in ipairs({ "vivaldi", "firefox", "chromium", "xdg-open", "open" }) do
+        if vim.fn.executable(cmd) == 1 then
+          return cmd
+        end
+      end
+    end)(),
 
-		diff = {
-			cmd = "diffview.nvim",
-		},
-	},
+    diff = {
+      cmd = "diffview.nvim",
+    },
+  },
 
-	performance = {
-		rtp = {
-			-- disable some rtp plugins
-			disabled_plugins = {
-				"netrwPlugin",
-				"tohtml",
-				"tutor",
-				"matchit",
-			},
-		},
-	},
+  performance = {
+    rtp = {
+      -- disable some rtp plugins
+      disabled_plugins = {
+        "netrwPlugin",
+        "tohtml",
+        "tutor",
+        "matchit",
+      },
+    },
+  },
 
-	profiling = {
-		-- Useful when :Lazy debug
-		loader = false,
-		-- Useful when :Lazy profile
-		require = false,
-	},
+  profiling = {
+    -- Useful when :Lazy debug
+    loader = false,
+    -- Useful when :Lazy profile
+    require = false,
+  },
 })
 -- In Lazy UI
 -- "<localleader>l" is open lazygit log
