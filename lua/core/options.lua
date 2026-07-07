@@ -83,9 +83,21 @@ vim.opt.fileencodings = { -- try these encodings when reading a file
 }
 
 -- ── Diagnostics ────────────────────────────────────────────────────
+-- ── Diagnostics ────────────────────────────────────────────────────
 vim.diagnostic.config({
+  virtual_text = true, -- show inline diagnostic text after the error line
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'E', -- E marker for errors
+      [vim.diagnostic.severity.WARN] = 'W', -- W marker for warnings
+      [vim.diagnostic.severity.INFO] = 'I', -- I marker for info
+      [vim.diagnostic.severity.HINT] = 'H', -- H marker for hints
+    },
+  },
+  underline = true, -- squiggly underline under error code
+  update_in_insert = false, -- don't refresh diagnostics while typing (performance)
   float = {
-    focusable = true, -- allow focusing the float window
+    focusable = true, -- allow focusing the float window to scroll
     close_events = { 'BufHidden', 'BufLeave' }, -- auto-close when leaving buffer
     border = 'rounded', -- rounded border style
     source = 'if_many', -- show source name when multiple sources
