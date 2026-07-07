@@ -1,9 +1,9 @@
 return {
-    {
-        "<leader>fm",
-        function()
-            require("conform").format({ async = true })
-        end,
-        desc = "Format",
-    },
+  {
+    '<leader>fm',
+    function()
+      require('conform').format({ async = true })
+    end,
+    desc = 'Format',
+  },
 }

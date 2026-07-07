@@ -8,12 +8,13 @@ return {
         installer = 'uv', -- "uv" (default if venv == "uv") or "pip" (default if venv == "venv" or "virtualenv")
       },
 
-    ui = { icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
+      ui = {
+        icons = {
+          package_installed = '✓',
+          package_pending = '➜',
+          package_uninstalled = '✗',
+        },
+      },
     },
   },
   {
@@ -35,4 +36,3 @@ return {
     end,
   },
 }
-

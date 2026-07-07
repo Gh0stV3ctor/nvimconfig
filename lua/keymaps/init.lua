@@ -1,3 +1,3 @@
-require("keymaps.editing")
-require("keymaps.lsp").setup()
-require("keymaps.diagnostic")
+require('keymaps.editing')
+require('keymaps.lsp').setup()
+require('keymaps.diagnostic')

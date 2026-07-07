@@ -4,6 +4,7 @@
 
 return {
   filetypes = { 'taskrc' },
+  enabled = false,
   treesitter = { 'taskwarrior' },
   treesitter_parsers = {
     taskwarrior = {

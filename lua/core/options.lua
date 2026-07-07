@@ -1,4 +1,3 @@
-
 -- ── Leaders & Globals ──────────────────────────────────────────────
 vim.g.mapleader = ' ' -- <Space> as leader key
 vim.g.maplocalleader = ',' -- <,> as local leader (used by grug-far etc.)
@@ -84,11 +83,11 @@ vim.opt.fileencodings = { -- try these encodings when reading a file
 }
 
 -- ── Diagnostics ────────────────────────────────────────────────────
-vim.diagnostic.config {
+vim.diagnostic.config({
   float = {
     focusable = true, -- allow focusing the float window
     close_events = { 'BufHidden', 'BufLeave' }, -- auto-close when leaving buffer
     border = 'rounded', -- rounded border style
     source = 'if_many', -- show source name when multiple sources
   },
-}
+})

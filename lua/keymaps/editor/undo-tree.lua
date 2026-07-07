@@ -1,3 +1,3 @@
 return {
-  { "<leader>u", "<cmd>UndotreeToggle<CR>", desc = "Undo Tree" },
+  { '<leader>u', '<cmd>UndotreeToggle<CR>', desc = 'Undo Tree' },
 }

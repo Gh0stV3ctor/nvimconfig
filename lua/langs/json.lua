@@ -4,7 +4,7 @@
 
 return {
   filetypes = { 'json', 'jsonc' },
-  treesitter = { 'json', 'jsonc', 'json5' },
+  treesitter = { 'json', 'json5' },
 
   lsp = {
     jsonls = {

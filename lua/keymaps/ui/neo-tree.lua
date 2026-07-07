@@ -1,3 +1,3 @@
 return {
-  { ";", "<cmd>Neotree toggle<CR>", desc = "Toggle file tree" },
+  { ';', '<cmd>Neotree toggle<CR>', desc = 'Toggle file tree' },
 }

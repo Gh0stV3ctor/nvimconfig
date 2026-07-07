@@ -1,6 +1,6 @@
 return {
-    {
-        "mbbill/undotree",
-        keys = require("keymaps.editor.undo-tree"),
-    },
+  {
+    'mbbill/undotree',
+    keys = require('keymaps.editor.undo-tree'),
+  },
 }

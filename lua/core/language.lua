@@ -1,4 +1,3 @@
-
 --- Language configuration system.
 --- Scans lua/langs/*.lua, aggregates LSP/treesitter/formatter/linter/DAP/plugins
 --- into a single source of truth.
@@ -167,7 +166,7 @@ local SCAN_IGNORE = {
 
 --- Scan lua/langs/ directory and load all language configs
 function M._scan()
-  local dir = vim.fn.stdpath 'config' .. '/lua/langs'
+  local dir = vim.fn.stdpath('config') .. '/lua/langs'
   local handle = vim.uv.fs_scandir(dir)
   if not handle then
     return
@@ -178,7 +177,7 @@ function M._scan()
     if not file then
       break
     end
-    if ftype == 'file' and file:match '%.lua$' and not SCAN_IGNORE[file] then
+    if ftype == 'file' and file:match('%.lua$') and not SCAN_IGNORE[file] then
       local name = file:sub(1, -5) -- "rust.lua" → "rust"
       local ok, config = pcall(require, 'langs.' .. name)
       if ok and type(config) == 'table' and config.enabled ~= false then
@@ -332,7 +331,7 @@ end
 
 --- Enable all declared LSP servers via Neovim 0.11+ native API
 function M.enable_lsp()
-  local cap = require("blink.cmp").get_lsp_capabilities()
+  local cap = require('blink.cmp').get_lsp_capabilities()
   for server, config in pairs(M._lsp_configs) do
     config.capabilities = cap
     if next(config) then
@@ -371,7 +370,7 @@ end
 --- Register custom treesitter parsers (call before nvim-treesitter setup)
 function M.register_treesitter_parsers()
   for name, config in pairs(M.treesitter_parsers) do
-    local parsers = require 'nvim-treesitter.parsers'
+    local parsers = require('nvim-treesitter.parsers')
     parsers.list[name] = {
       install_info = {
         url = config.url,

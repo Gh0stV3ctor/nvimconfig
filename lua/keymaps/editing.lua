@@ -9,15 +9,15 @@ local map = vim.keymap.set
 -- Exit insert mode
 -- =============================================================================
 -- jk is faster than reaching for Escape or Ctrl+[
-map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+map('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 
 -- =============================================================================
 -- Save / Quit
 -- =============================================================================
-map("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save" })
-map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "Save and quit window" })
-map("n", "<leader>qq", "<cmd>q!<CR>", { desc = "Quit without save" })
-map("n", "<leader>qa", "<cmd>qa!<CR>", { desc = "Quit all window without save" })
+map('n', '<leader>ww', '<cmd>w<CR>', { desc = 'Save' })
+map('n', '<leader>wq', '<cmd>wq<CR>', { desc = 'Save and quit window' })
+map('n', '<leader>qq', '<cmd>q!<CR>', { desc = 'Quit without save' })
+map('n', '<leader>qa', '<cmd>qa!<CR>', { desc = 'Quit all window without save' })
 -- Force-save: skip all BufWritePre autocmds (bypass format-on-save)
 -- map("n", "<leader>W", "<cmd>noautocmd w<CR>", { desc = "Force-save (skip autocmds)" })
 
@@ -46,7 +46,7 @@ map("n", "<leader>qa", "<cmd>qa!<CR>", { desc = "Quit all window without save" }
 -- =============================================================================
 -- Search
 -- =============================================================================
-map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
+map('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 -- map("v", "*", "y/<C-r>\"<CR>", { desc = "Search forward (selection)" })
 -- map("v", "#", "y?<C-r>\"<CR>", { desc = "Search backward (selection)" })
 -- y = yank selection to "" → / or ? enters search → <C-r>" pastes "" → CR
@@ -63,73 +63,73 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 -- =============================================================================
 -- Visual paste without overwriting register
 -- =============================================================================
-map("v", "p", '"_dP', { desc = "Paste (keep register)" })
+map('v', 'p', '"_dP', { desc = 'Paste (keep register)' })
 -- "_d = delete selection into blackhole → P = paste. "" remains intact.
 
 -- =============================================================================
 -- Line operations
 -- =============================================================================
 -- Move selected lines up/down in visual mode
-map("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-map("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+map('v', '<C-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+map('v', '<C-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 -- Breakdown: :m '>+1 = move last line of selection past itself
 --            gv = reselect → = = reindent → gv = reselect again
 
 -- Indent while keeping selection
-map("v", "<", "<gv", { desc = "Decrease indent" })
-map("v", ">", ">gv", { desc = "Increase indent" })
+map('v', '<', '<gv', { desc = 'Decrease indent' })
+map('v', '>', '>gv', { desc = 'Increase indent' })
 
 -- =============================================================================
 -- Window management
 -- =============================================================================
 -- Ctrl+hjkl to navigate splits (consistent with tmux/zellij conventions)
-map({ 'n', 't' }, '<A-h>', '<C-\\><C-n><C-w>h', { desc = "Go to left window" })
-map({ 'n', 't' }, '<A-j>', '<C-\\><C-n><C-w>j', { desc = "Go to lower window" })
-map({ 'n', 't' }, '<A-k>', '<C-\\><C-n><C-w>k', { desc = "Go to upper window" })
-map({ 'n', 't' }, '<A-l>', '<C-\\><C-n><C-w>l', { desc = "Go to right window" })
+map({ 'n', 't' }, '<A-h>', '<C-\\><C-n><C-w>h', { desc = 'Go to left window' })
+map({ 'n', 't' }, '<A-j>', '<C-\\><C-n><C-w>j', { desc = 'Go to lower window' })
+map({ 'n', 't' }, '<A-k>', '<C-\\><C-n><C-w>k', { desc = 'Go to upper window' })
+map({ 'n', 't' }, '<A-l>', '<C-\\><C-n><C-w>l', { desc = 'Go to right window' })
 
-map("n", "<leader>wv", "<C-w>v", { desc = "Split vertical" })
-map("n", "<leader>wh", "<C-w>s", { desc = "Split horizontal" })
-map("n", "<leader>wd", "<C-w>c", { desc = "Close window" })
-map("n", "<leader>wo", "<C-w>o", { desc = "Only window" })
+map('n', '<leader>wv', '<C-w>v', { desc = 'Split vertical' })
+map('n', '<leader>wh', '<C-w>s', { desc = 'Split horizontal' })
+map('n', '<leader>wd', '<C-w>c', { desc = 'Close window' })
+map('n', '<leader>wo', '<C-w>o', { desc = 'Only window' })
 -- Resize windows
-map("n", "<C-S-h>", "<cmd>vertical resize -3<CR>", { desc = "Narrower" })
-map("n", "<C-S-l>", "<cmd>vertical resize +3<CR>", { desc = "Wider" })
-map("n", "<C-S-k>", "<cmd>resize +3<CR>", { desc = "Taller" })
-map("n", "<C-S-j>", "<cmd>resize -3<CR>", { desc = "Shorter" })
+map('n', '<C-S-h>', '<cmd>vertical resize -3<CR>', { desc = 'Narrower' })
+map('n', '<C-S-l>', '<cmd>vertical resize +3<CR>', { desc = 'Wider' })
+map('n', '<C-S-k>', '<cmd>resize +3<CR>', { desc = 'Taller' })
+map('n', '<C-S-j>', '<cmd>resize -3<CR>', { desc = 'Shorter' })
 
 -- =============================================================================
 -- Tab management (easier than native gt/gT)
 -- =============================================================================
-map("n", "<S-h>", "<cmd>tabp<CR>", { desc = "Previous tab" })
-map("n", "<S-l>", "<cmd>tabn<CR>", { desc = "Next tab" })
-map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
-map("n", "<leader>td", "<cmd>tabclose<CR>", { desc = "Close tab" })
-map("n", "<leader>tH", "<cmd>-tabm<CR>", { desc = "Move tab left" })
-map("n", "<leader>tL", "<cmd>+tabm<CR>", { desc = "Move tab right" })
+map('n', '<S-h>', '<cmd>tabp<CR>', { desc = 'Previous tab' })
+map('n', '<S-l>', '<cmd>tabn<CR>', { desc = 'Next tab' })
+map('n', '<leader>tn', '<cmd>tabnew<CR>', { desc = 'New tab' })
+map('n', '<leader>td', '<cmd>tabclose<CR>', { desc = 'Close tab' })
+map('n', '<leader>tH', '<cmd>-tabm<CR>', { desc = 'Move tab left' })
+map('n', '<leader>tL', '<cmd>+tabm<CR>', { desc = 'Move tab right' })
 
 -- =============================================================================
 -- Buffer management
 -- =============================================================================
-map({ "n", "i" }, "<C-PageUp>", "<cmd>bp<CR>", { desc = "Previous buffer" })
-map({ "n", "i" }, "<C-PageDown>", "<cmd>bn<CR>", { desc = "Next buffer" })
-map("n", "<A-o>", function()
+map({ 'n', 'i' }, '<C-PageUp>', '<cmd>bp<CR>', { desc = 'Previous buffer' })
+map({ 'n', 'i' }, '<C-PageDown>', '<cmd>bn<CR>', { desc = 'Next buffer' })
+map('n', '<A-o>', function()
   local bufnr = vim.api.nvim_get_current_buf()
   -- firstly move to the alternate buffer（the previous buffer） before close A
-  vim.cmd("b#")
+  vim.cmd('b#')
   -- after moving to the previous, close A
   if vim.api.nvim_get_current_buf() ~= bufnr then
     vim.api.nvim_buf_delete(bufnr, {})
   end
-end, { desc = "关闭 buffer（保留窗口布局）" })
+end, { desc = '关闭 buffer（保留窗口布局）' })
 
 -- =============================================================================
 -- Select all
 -- =============================================================================
-map("n", "<C-a>", "ggVG", { desc = "Select all" })
+map('n', '<C-a>', 'ggVG', { desc = 'Select all' })
 
 -- =============================================================================
 -- Quickfix
 -- =============================================================================
-map("n", "]q", "<cmd>cnext<CR>", { desc = "Next quickfix" })
-map("n", "[q", "<cmd>cprev<CR>", { desc = "Previous quickfix" })
+map('n', ']q', '<cmd>cnext<CR>', { desc = 'Next quickfix' })
+map('n', '[q', '<cmd>cprev<CR>', { desc = 'Previous quickfix' })
