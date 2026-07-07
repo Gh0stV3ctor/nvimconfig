@@ -13,7 +13,10 @@ return {
         Lua = {
           runtime = { version = 'LuaJIT' },
           diagnostics = { globals = { 'vim', 'Snacks' } },
-          workspace = { checkThirdParty = false },
+          workspace = {
+            checkThirdParty = false,
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
           codeLens = { enable = true },
           completion = { callSnippet = 'Replace' },
           doc = { privateName = { '^_' } },
@@ -36,13 +39,11 @@ return {
     local ls = require 'luasnip'
     local s, t, i = ls.snippet, ls.text_node, ls.insert_node
     return {
-      -- `localm` → module scaffold: `local M = {}\n\n<cursor>\n\nreturn M`
       s('localm', {
         t { 'local M = {}', '', '' },
         i(0),
         t { '', '', 'return M' },
       }),
-      -- `vpri` → `print(vim.inspect(<cursor>))`
       s('vpri', {
         t 'print(vim.inspect(',
         i(1),
