@@ -3,6 +3,7 @@ return {
     'saghen/blink.cmp',
     version = '1.*',
     event = 'InsertEnter',
+    dependencies = { 'L3MON4D3/LuaSnip' },
     opts = {
       keymap = require('keymaps.langs.completion'),
       appearance = {
@@ -47,6 +48,7 @@ return {
         enabled = true,
         window = { border = 'rounded' },
       },
+      snippets = { preset = 'luasnip' },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },

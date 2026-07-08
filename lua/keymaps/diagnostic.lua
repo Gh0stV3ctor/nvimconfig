@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 
-map('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
-map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
-map('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Diagnostic details' })
+-- Neovim 0.12 API: vim.diagnostic.jump() replaces the deprecated goto_next / goto_prev
+map('n', ']d', function() vim.diagnostic.jump({ count = 1 }) end, { desc = 'Next diagnostic' })
+map('n', '[d', function() vim.diagnostic.jump({ count = -1 }) end, { desc = 'Previous diagnostic' })
+map('n', '<leader>de', function() vim.diagnostic.open_float({ scope = 'line' }) end, { desc = 'Diagnostic details' })

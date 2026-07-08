@@ -103,3 +103,11 @@ vim.diagnostic.config({
     source = 'if_many', -- show source name when multiple sources
   },
 })
+
+-- Flash the yanked region briefly to confirm what was copied.
+-- This is NOT related to gitsigns blame virtual text — those are independent rendering systems.
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ timeout = 150 })
+  end,
+})
