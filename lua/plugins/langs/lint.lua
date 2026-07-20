@@ -19,7 +19,17 @@ return {
           end
           names = vim.tbl_filter(function(name)
             local linter = lint.linters[name]
-            return linter and vim.fn.executable(linter.cmd or name) == 1
+            if not linter then
+              return false
+            end
+            -- nvim-lint linters may have cmd as a string (binary name)
+            -- or as a function (dynamic command generation, e.g. stylelint).
+            -- vim.fn.executable() requires a string, so skip the check when
+            -- cmd is a function — the try_lint() call will handle failures gracefully.
+            if type(linter.cmd) == 'function' then
+              return true
+            end
+            return vim.fn.executable(linter.cmd or name) == 1
           end, names)
           if #names > 0 then
             lint.try_lint(names)
