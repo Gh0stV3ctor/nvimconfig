@@ -8,4 +8,5 @@ return {
   { '<leader>w', group = 'Window' },
   { '<leader>t', group = 'Tab' },
   { '<leader>q', group = 'Quit' },
+  { '<leader>fk', '<cmd>Telescope keymaps<CR>', desc = 'Keymaps' },
 }
